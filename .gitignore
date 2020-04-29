@@ -5,6 +5,7 @@ __pycache__/
 
 # Distribution / packaging
 .idea/
+qtFiles/converter.bat
 .Python
 build/
 develop-eggs/
