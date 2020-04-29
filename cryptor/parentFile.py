@@ -1,10 +1,13 @@
-class Cypher(object):
+class Cipher(object):
 
-    def __init__(self):
-        pass
+    def __init__(self, text):
+        self.text = text
+        self.endText = str()
 
     def encrypt(self):
-        pass
+        return self.endText
 
     def decrypt(self):
-        pass
+        return self.endText
+
+    # TODO: add main alphabets and cyphering
