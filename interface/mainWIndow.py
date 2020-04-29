@@ -23,12 +23,12 @@ class FormWindow(QtWidgets.QMainWindow, FrontWindow):
     def encrypt_button(self):
 
         self.text = self.testForAction.toPlainText()
-        self.instance = Helpers.lambda_dict.get('{}'.format(self.choiseBox.currentText()))
-        self.endText = self.instance(self.text).encrypt()
+        self.instance = Helpers.lambda_dict.get('{}'.format(self.choiseBox.currentText()))(self.text)
+        self.endText = self.instance.encrypt()
         self.resultText.setText(self.endText)
 
     def decrypt_button(self):
         self.text = self.testForAction.toPlainText()
-        self.instance = Helpers.lambda_dict.get('{}'.format(self.choiseBox.currentText()))
-        self.endText = self.instance(self.text).decrypt()
+        self.instance = Helpers.lambda_dict.get('{}'.format(self.choiseBox.currentText()))(self.text)
+        self.endText = self.instance.decrypt()
         self.resultText.setText(self.endText)
