@@ -9,7 +9,9 @@ if __name__ == '__main__':
     sys.exit(application.exec_())
 
 
-# from cryptor import CaesarCipher
+# from utilites import Helpers
 #
-# text = CaesarCipher('|d#hedo#wyrx#whonx')
-# print(text.decrypt())
+# x = Helpers.lambda_dict.get('trisemus')('text', 'key')
+# print(x.encrypt())
+# y = Helpers.lambda_dict.get('trisemus')('wbBw', 'key')
+# print(y.decrypt())
