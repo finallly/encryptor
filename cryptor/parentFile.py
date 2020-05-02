@@ -1,7 +1,8 @@
 class Cipher(object):
 
-    def __init__(self, text):
+    def __init__(self, text, keyword=None):
         self.text = text
+        self.key = keyword
         self.endText = str()
 
     def encrypt(self):
@@ -9,5 +10,3 @@ class Cipher(object):
 
     def decrypt(self):
         return self.endText
-
-    # TODO: add main alphabets and cyphering

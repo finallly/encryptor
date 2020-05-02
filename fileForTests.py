@@ -7,9 +7,3 @@ if __name__ == '__main__':
     window = FormWindow()
     window.show()
     sys.exit(application.exec_())
-
-
-# from cryptor import CaesarCipher
-#
-# text = CaesarCipher('|d#hedo#wyrx#whonx')
-# print(text.decrypt())
