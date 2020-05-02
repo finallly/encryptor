@@ -40,6 +40,7 @@ class TrisemusCipher(Cipher):
 
     @staticmethod
     def table_maker(key):
+        space_flag = False
         flag, lst, seen, length, stroke = key[0].islower(), [], set(), len(key), str()
         for letter in key:
             if letter not in seen:
@@ -69,6 +70,11 @@ class TrisemusCipher(Cipher):
                 try:
                     lts.append(stroke[j])
                 except IndexError:
-                    lts.append('0')
+                    if not space_flag:
+                        lts.append(' ')
+                    else:
+                        lts.append('0')
             lst.append(lts)
+        if len(key) in (2, 4, 13, 26):
+            lst.append([' ', 0, 0, 0])
         return lst
