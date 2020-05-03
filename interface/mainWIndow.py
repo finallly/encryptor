@@ -24,7 +24,9 @@ class FormWindow(QtWidgets.QMainWindow, FrontWindow):
         self.choiseBox.textActivated.connect(self.flag_checker)
         self.keyLine.editingFinished.connect(self.key_checker)
 
-        self.setWindowTitle('something will be here')
+        self.setWindowTitle('crypto')
+
+        self.key = str()
 
         # TODO: add name here
 

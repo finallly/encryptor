@@ -9,5 +9,5 @@ class ErrorWindow(QtWidgets.QMessageBox):
     def popup_window(self, state, text, icon=None):
         self.setWindowTitle(state)  # TODO: need constant access to state types
         self.setText(text)
-        self.setIcon(self.Information)
+        self.setIcon(self.Warning)
         self.exec()
