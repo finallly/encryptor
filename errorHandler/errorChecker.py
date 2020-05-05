@@ -8,7 +8,7 @@ class ErrorChecker:
         self.text = text
         self.key = key
 
-    def check(self):
+    def check(self) -> dict:
         self.answer_dict = {'flag': None, 'title': None, 'text': None}
 
         if self.text == str():
@@ -60,8 +60,11 @@ class ErrorChecker:
                 self.answer_dict['text'] = 'your must enter the key for caesar_key cipher'
 
         if self.currentCipher == 'affine':
-            self.answer_dict['flag'] = True
-
-            # TODO: add check here
+            if self.text.isalpha():
+                self.answer_dict['flag'] = True
+            else:
+                self.answer_dict['flag'] = False
+                self.answer_dict['title'] = 'text error'
+                self.answer_dict['text'] = 'text should only include lower or upper case letters and spaces'
 
         return self.answer_dict

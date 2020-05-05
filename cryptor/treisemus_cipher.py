@@ -9,7 +9,7 @@ class TrisemusCipher(Cipher):
         self.table = self.table_maker(self.key)
         self.key = keyword
 
-    def encrypt(self):
+    def encrypt(self) -> str:
         self.endText = str()
         for letter in self.text:
             indexes = self.indexer(self.table, letter)
@@ -19,7 +19,7 @@ class TrisemusCipher(Cipher):
                 self.endText += self.table[0][indexes[1]]
         return self.endText
 
-    def decrypt(self):
+    def decrypt(self) -> str:
         self.endText = str()
         for letter in self.text:
             indexes = self.indexer(self.table, letter)
@@ -32,14 +32,14 @@ class TrisemusCipher(Cipher):
         return self.endText
 
     @staticmethod
-    def indexer(table, letter):
+    def indexer(table, letter) -> tuple:
         for i in range(len(table)):
             for j in range(len(table[0])):
                 if table[i][j] == letter:
                     return i, j
 
     @staticmethod
-    def table_maker(key):
+    def table_maker(key) -> list:
         space_flag = False
         flag, lst, seen, length, stroke = key[0].islower(), [], set(), len(key), str()
         for letter in key:

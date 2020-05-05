@@ -30,28 +30,28 @@ class FormWindow(QtWidgets.QMainWindow, FrontWindow):
 
         # TODO: add name here
 
-    def encrypt_button(self):
+    def encrypt_button(self) -> None:
         self.text = self.testForAction.toPlainText()
         if self.error_checker():
             self.instance = Helpers.lambda_dict.get(self.choiseBox.currentText())(self.text, keyword=self.key)
             self.resultText.setText(self.instance.encrypt())
 
-    def decrypt_button(self):
+    def decrypt_button(self) -> None:
         self.text = self.testForAction.toPlainText()
         if self.error_checker():
             self.instance = Helpers.lambda_dict.get(self.choiseBox.currentText())(self.text, keyword=self.key)
             self.resultText.setText(self.instance.decrypt())
 
-    def flag_checker(self):
+    def flag_checker(self) -> None:
         if Consts.cipher_flags.get(self.choiseBox.currentText()):
             self.keyLine.show()
         else:
             self.keyLine.hide()
 
-    def key_checker(self):
+    def key_checker(self) -> None:
         self.key = self.keyLine.text()
 
-    def error_checker(self):
+    def error_checker(self) -> bool:
         self.answer = ErrorChecker(self.choiseBox.currentText(), self.text, self.key).check()
         if self.answer.get('flag'):
             return True

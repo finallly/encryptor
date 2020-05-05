@@ -9,7 +9,7 @@ class AffineCipher(Cipher):
         self.endText = str()
         self.alphabet = Consts.const_dict.get('alphabet_lower') + Consts.const_dict.get('alphabet_higher') + ' '
 
-    def encrypt(self):
+    def encrypt(self) -> str:
         self.base_dict = dict(enumerate(self.alphabet))
         self.crypto_dict = dict([(v, k) for k, v in enumerate(self.alphabet)])
         self.end_dict = {}
@@ -22,7 +22,7 @@ class AffineCipher(Cipher):
 
         return self.endText
 
-    def decrypt(self):
+    def decrypt(self) -> str:
         self.base_dict = dict(enumerate(self.alphabet))
         self.crypto_dict = dict([(v, k) for k, v in enumerate(self.alphabet)])
         self.end_dict = {}

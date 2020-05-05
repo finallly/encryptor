@@ -5,8 +5,8 @@ class Cipher(object):
         self.key = keyword
         self.endText = str()
 
-    def encrypt(self):
+    def encrypt(self) -> str:
         return self.endText
 
-    def decrypt(self):
+    def decrypt(self) -> str:
         return self.endText
