@@ -4,12 +4,16 @@ from utilites.consts import Consts
 
 class TrisemusCipher(Cipher):
 
-    def __init__(self, text, keyword):
+    def __init__(self, text: str, keyword):
         super(TrisemusCipher, self).__init__(text, keyword)
         self.table = self.table_maker(self.key)
         self.key = keyword
 
     def encrypt(self) -> str:
+        """
+        this method uses trisemus method of encryption
+        :return: encrypted text
+        """
         self.endText = str()
         for letter in self.text:
             indexes = self.indexer(self.table, letter)
@@ -20,6 +24,10 @@ class TrisemusCipher(Cipher):
         return self.endText
 
     def decrypt(self) -> str:
+        """
+        this method uses trisemus method of encryption
+        :return: decrypted text
+        """
         self.endText = str()
         for letter in self.text:
             indexes = self.indexer(self.table, letter)
@@ -31,15 +39,28 @@ class TrisemusCipher(Cipher):
                 self.endText += self.table[len(self.table) - 2][indexes[1]]
         return self.endText
 
+    # Careful stranger, hardcode here...
+
     @staticmethod
-    def indexer(table, letter) -> tuple:
+    def indexer(table: list, letter: str) -> tuple:
+        """
+        this method finds letter in a given crypto table
+        :param table:
+        :param letter:
+        :return: tuple of indexes
+        """
         for i in range(len(table)):
             for j in range(len(table[0])):
                 if table[i][j] == letter:
                     return i, j
 
     @staticmethod
-    def table_maker(key) -> list:
+    def table_maker(key: str) -> list:
+        """
+        this method creates table for encryption/decryption
+        :param key:
+        :return: list
+        """
         space_flag = False
         flag, lst, seen, length, stroke = key[0].islower(), [], set(), len(key), str()
         for letter in key:
