@@ -9,10 +9,15 @@ class ErrorChecker:
         self.key = key
 
     def check(self) -> dict:
+        """
+        this method handles error with input values
+        :return: dict of states
+        """
         self.answer_dict = {'flag': None, 'title': None, 'text': None}
         self.alphabet = Consts.const_dict.get('alphabet_lower') + Consts.const_dict.get('alphabet_higher') + ' '
 
         if self.text == str():
+
             self.answer_dict['flag'] = False
             self.answer_dict['title'] = 'input error'
             self.answer_dict['text'] = 'your must enter the text first'
@@ -47,6 +52,7 @@ class ErrorChecker:
                     'text'] = 'key should only include lower or upper case letters while text can also include spaces'
 
         if self.currentCipher == 'caesar':
+
             self.answer_dict['flag'] = True
 
         if self.currentCipher == 'caesar_key':
@@ -54,15 +60,21 @@ class ErrorChecker:
             if self.key != str():
 
                 self.answer_dict['flag'] = True
+
             else:
+
                 self.answer_dict['flag'] = False
                 self.answer_dict['title'] = 'input error'
                 self.answer_dict['text'] = 'your must enter the key for caesar_key cipher'
 
         if self.currentCipher == 'affine':
+
             if all([i in self.alphabet for i in self.text]):
+
                 self.answer_dict['flag'] = True
+
             else:
+
                 self.answer_dict['flag'] = False
                 self.answer_dict['title'] = 'text error'
                 self.answer_dict['text'] = 'text should only include lower or upper case letters and spaces'

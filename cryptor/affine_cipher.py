@@ -4,12 +4,16 @@ from utilites.consts import Consts
 
 class AffineCipher(Cipher):
 
-    def __init__(self, text, keyword=None):
+    def __init__(self, text: str, keyword=None):
         super(AffineCipher, self).__init__(text, keyword)
         self.endText = str()
         self.alphabet = Consts.const_dict.get('alphabet_lower') + Consts.const_dict.get('alphabet_higher') + ' '
 
     def encrypt(self) -> str:
+        """
+        this method uses affine method of encryption
+        :return: encrypted text
+        """
         self.base_dict = dict(enumerate(self.alphabet))
         self.crypto_dict = dict([(v, k) for k, v in enumerate(self.alphabet)])
         self.end_dict = {}
@@ -23,6 +27,10 @@ class AffineCipher(Cipher):
         return self.endText
 
     def decrypt(self) -> str:
+        """
+        this method uses affine method of encryption
+        :return: decrypted text
+        """
         self.base_dict = dict(enumerate(self.alphabet))
         self.crypto_dict = dict([(v, k) for k, v in enumerate(self.alphabet)])
         self.end_dict = {}
