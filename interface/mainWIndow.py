@@ -10,47 +10,67 @@ class FormWindow(QtWidgets.QMainWindow, FrontWindow):
     def __init__(self, parent=None):
         super(FormWindow, self).__init__(parent)
 
+        # activation of the form
         self.setup_ui(self)
 
+        # button bindings
         self.buttonEncrypt.clicked.connect(self.encrypt_button)
         self.buttonDecrypt.clicked.connect(self.decrypt_button)
 
+        # keyLine settings
         self.resultText.setReadOnly(True)
+        self.keyLine.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.keyLine.editingFinished.connect(self.key_checker)
+        self.keyLine.setMaxLength(14)
         self.keyLine.hide()
 
-        self.keyLine.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.keyLine.setMaxLength(14)
+        # choiceBox flag
+        self.choiceBox.textActivated.connect(self.flag_checker)
 
-        self.choiseBox.textActivated.connect(self.flag_checker)
-        self.keyLine.editingFinished.connect(self.key_checker)
+        # title
+        self.setWindowTitle('crypto')
 
-        self.setWindowTitle('something will be here')
+        self.key = str()
 
-        # TODO: add name here
-
-    def encrypt_button(self):
+    def encrypt_button(self) -> None:
+        """
+        this method initialize 'encrypt' button
+        :return: None
+        """
         self.text = self.testForAction.toPlainText()
         if self.error_checker():
-            self.instance = Helpers.lambda_dict.get(self.choiseBox.currentText())(self.text, keyword=self.key)
+            self.instance = Helpers.lambda_dict.get(self.choiceBox.currentText())(self.text, keyword=self.key)
             self.resultText.setText(self.instance.encrypt())
 
-    def decrypt_button(self):
+    def decrypt_button(self) -> None:
+        """
+        this method initialize 'decrypt' button
+        """
         self.text = self.testForAction.toPlainText()
         if self.error_checker():
-            self.instance = Helpers.lambda_dict.get(self.choiseBox.currentText())(self.text, keyword=self.key)
+            self.instance = Helpers.lambda_dict.get(self.choiceBox.currentText())(self.text, keyword=self.key)
             self.resultText.setText(self.instance.decrypt())
 
-    def flag_checker(self):
-        if Consts.cipher_flags.get(self.choiseBox.currentText()):
+    def flag_checker(self) -> None:
+        """
+        this method checks if cipher need the keyLine
+        """
+        if Consts.cipher_flags.get(self.choiceBox.currentText()):
             self.keyLine.show()
         else:
             self.keyLine.hide()
 
-    def key_checker(self):
+    def key_checker(self) -> None:
+        """
+        this method defined the key
+        """
         self.key = self.keyLine.text()
 
-    def error_checker(self):
-        self.answer = ErrorChecker(self.choiseBox.currentText(), self.text, self.key).check()
+    def error_checker(self) -> bool:
+        """
+         this method handles error in text or keys
+        """
+        self.answer = ErrorChecker(self.choiceBox.currentText(), self.text, self.key).check()
         if self.answer.get('flag'):
             return True
         else:

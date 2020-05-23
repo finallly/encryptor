@@ -1,12 +1,12 @@
 class Cipher(object):
 
-    def __init__(self, text, keyword=None):
+    def __init__(self, text: str, keyword=None):
         self.text = text
         self.key = keyword
         self.endText = str()
 
-    def encrypt(self):
+    def encrypt(self) -> str:
         return self.endText
 
-    def decrypt(self):
+    def decrypt(self) -> str:
         return self.endText
