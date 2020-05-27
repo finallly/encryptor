@@ -1,4 +1,5 @@
 from .parentFile import Cipher
+from errorHandler import ErrorWindow
 
 
 class CaesarKeyCipher(Cipher):
@@ -21,5 +22,8 @@ class CaesarKeyCipher(Cipher):
         this method uses caesar with key method of encryption
         :return: decrypted text
         """
-        self.endText = ''.join([chr(ord(symbol) - self.key) for symbol in self.symbols])
+        try:
+            self.endText = ''.join([chr(ord(symbol) - self.key) for symbol in self.symbols])
+        except ValueError:
+            ErrorWindow().popup_window('value error', 'you can only encode this message')
         return self.endText

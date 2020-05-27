@@ -2,7 +2,7 @@ from .form import FrontWindow
 from errorHandler import ErrorWindow, ErrorChecker
 from utilites import Helpers, Consts
 
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui
 
 
 class FormWindow(QtWidgets.QMainWindow, FrontWindow):
@@ -21,7 +21,7 @@ class FormWindow(QtWidgets.QMainWindow, FrontWindow):
         self.resultText.setReadOnly(True)
         self.keyLine.setEchoMode(QtWidgets.QLineEdit.Password)
         self.keyLine.editingFinished.connect(self.key_checker)
-        self.keyLine.setMaxLength(14)
+        self.keyLine.setMaxLength(20)
         self.keyLine.hide()
 
         # choiceBox flag
@@ -29,6 +29,8 @@ class FormWindow(QtWidgets.QMainWindow, FrontWindow):
 
         # title
         self.setWindowTitle('crypto')
+
+        self.choiceBox.setFont(QtGui.QFont("Consolas", 14))
 
         self.key = str()
 
