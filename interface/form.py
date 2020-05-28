@@ -16,7 +16,7 @@ class FrontWindow(object):
         MainWindow.resize(800, 600)
         MainWindow.setMinimumSize(QtCore.QSize(800, 600))
         MainWindow.setMaximumSize(QtCore.QSize(800, 600))
-        MainWindow.setStyleSheet("background-color:grey;")
+        MainWindow.setStyleSheet("background-color: #3C3C3B;")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.buttonEncrypt = QtWidgets.QPushButton(self.centralwidget)
@@ -27,23 +27,22 @@ class FrontWindow(object):
         self.buttonEncrypt.setFont(font)
         self.buttonEncrypt.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.buttonEncrypt.setStyleSheet("QPushButton {\n"
-" background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"  background-color: #1F1F20;\n"
 "  border-style: solid;\n"
 "  border: 1px solid #1e1e1e;\n"
 "  border-radius: 5;\n"
 "  padding: 1px 0px 1px 0px;\n"
-"  color: green;\n"
+"  color:#00ee00;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"    background-color: #181819\n"
 "}\n"
 "\n"
 " QPushButton:hover\n"
 "{\n"
-"    border: 2px solid green;\n"
-"    color: green;\n"
+"    border: 2px solid #00ee00;\n"
+"    color: #00ee00;\n"
 "}")
         self.buttonEncrypt.setObjectName("buttonEncrypt")
         self.buttonDecrypt = QtWidgets.QPushButton(self.centralwidget)
@@ -54,169 +53,179 @@ class FrontWindow(object):
         self.buttonDecrypt.setFont(font)
         self.buttonDecrypt.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.buttonDecrypt.setStyleSheet("QPushButton {\n"
-" background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"  background-color: #1F1F20;\n"
 "  border-style: solid;\n"
 "  border: 1px solid #1e1e1e;\n"
 "  border-radius: 5;\n"
 "  padding: 1px 0px 1px 0px;\n"
-"  color: green;\n"
+"  color:#00ee00;\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"    background-color: #181819;\n"
 "}\n"
 "\n"
 " QPushButton:hover\n"
 "{\n"
-"    border: 2px solid green;\n"
-"    color: green;\n"
+"    border: 2px solid #00ee00;\n"
+"    color: #00ee00;\n"
 "}")
         self.buttonDecrypt.setObjectName("buttonDecrypt")
         self.keyLine = QtWidgets.QLineEdit(self.centralwidget)
         self.keyLine.setGeometry(QtCore.QRect(320, 280, 251, 31))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 34, 0, 128))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
+        self.keyLine.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Consolas")
         font.setPointSize(14)
         self.keyLine.setFont(font)
         self.keyLine.setStyleSheet("QLineEdit {\n"
-" background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"  background-color: #1F1F20;\n"
 "  border-style: solid;\n"
 "  border: 1px solid #1e1e1e;\n"
 "  border-radius: 5;\n"
 "  padding: 1px 0px 1px 0px;\n"
-"  color: red;\n"
+"  color: #FF2200;\n"
 "}\n"
 "\n"
+" QLineEdit:hover\n"
+"{\n"
+"    border: 2px solid red;\n"
+"    color: red;\n"
+"}\n"
+"\n"
+"QLineEdit[echoMode=\"2\"] {\n"
+"    lineedit-password-character: 9679;\n"
+"}\n"
 "")
         self.keyLine.setObjectName("keyLine")
         self.resultText = QtWidgets.QTextEdit(self.centralwidget)
         self.resultText.setGeometry(QtCore.QRect(10, 320, 781, 251))
         palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
         self.resultText.setPalette(palette)
@@ -230,12 +239,12 @@ class FrontWindow(object):
         font.setStrikeOut(False)
         self.resultText.setFont(font)
         self.resultText.setStyleSheet("QTextEdit {\n"
-" background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"  background-color: #1F1F20;\n"
 "  border-style: solid;\n"
 "  border: 1px solid #1e1e1e;\n"
 "  border-radius: 5;\n"
 "  padding: 1px 0px 1px 0px;\n"
-"  color: #00a200;\n"
+"  color: #00ee00;\n"
 "}\n"
 "\n"
 "")
@@ -245,130 +254,67 @@ class FrontWindow(object):
         self.testForAction.setGeometry(QtCore.QRect(10, 10, 781, 261))
         self.testForAction.setMinimumSize(QtCore.QSize(1, 0))
         palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(86, 86, 86))
-        gradient.setColorAt(0.1, QtGui.QColor(82, 82, 82))
-        gradient.setColorAt(0.5, QtGui.QColor(78, 78, 78))
-        gradient.setColorAt(0.9, QtGui.QColor(74, 74, 74))
-        gradient.setColorAt(1.0, QtGui.QColor(70, 70, 70))
-        brush = QtGui.QBrush(gradient)
+        brush = QtGui.QBrush(QtGui.QColor(31, 31, 32))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 162, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(0, 238, 0, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
         self.testForAction.setPalette(palette)
@@ -378,12 +324,12 @@ class FrontWindow(object):
         self.testForAction.setFont(font)
         self.testForAction.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.IBeamCursor))
         self.testForAction.setStyleSheet("QTextEdit {\n"
-" background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+" background-color: #1F1F20;\n"
 "  border-style: solid;\n"
 "  border: 1px solid #1e1e1e;\n"
 "  border-radius: 5;\n"
 "  padding: 1px 0px 1px 0px;\n"
-"  color: #00a200;\n"
+"  color: #00ee00;\n"
 "}\n"
 "\n"
 "")
@@ -396,9 +342,9 @@ class FrontWindow(object):
 "    subcontrol-origin: padding;\n"
 "    subcontrol-position: top right;\n"
 "    selection-background-color: #111;\n"
-"    selection-color: green;\n"
-"    color: green;\n"
-"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"    selection-color: #00ee00;\n"
+"    color: #00ee00;\n"
+"    background-color: #1E1E1E;\n"
 "    border-style: solid;\n"
 "    border: 1px solid #1e1e1e;\n"
 "    border-radius: 5;\n"
@@ -408,31 +354,31 @@ class FrontWindow(object):
 "\n"
 "QComboBox:hover, QPushButton:hover\n"
 "{\n"
-"    border: 2px solid green;\n"
-"    color: green;\n"
+"    border: 2px solid#00ee00;\n"
+"    color: #00ee00;\n"
 "}\n"
 "\n"
 "QComboBox:on\n"
 "{\n"
 "    padding-top: 0px;\n"
 "    padding-left: 0px;\n"
-"    color: green;\n"
-"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);\n"
+"    color:#00ee00;\n"
+"    background-color: #181819;\n"
 "    selection-background-color: #ffaa00;\n"
 "    padding: 1px 0px 1px 10px;\n"
 "}\n"
 "\n"
 "QComboBox:!on\n"
 "{\n"
-"    color: green;\n"
-"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #666, stop: 0.1 #555, stop: 0.5 #555, stop: 0.9 #444, stop: 1 #333);\n"
+"    color:#00ee00;\n"
+"    background-color: #1E1E1E;\n"
 "}\n"
 "\n"
 "QComboBox QAbstractItemView\n"
 "{\n"
 "    border: 2px solid darkgray;\n"
-"    color: black;\n"
-"    selection-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #111, stop: 1 #333);\n"
+"    color: #181819;\n"
+"    selection-background-color: #181819;\n"
 "}\n"
 "\n"
 "QComboBox::drop-down\n"
