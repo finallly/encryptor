@@ -42,14 +42,14 @@ class ErrorChecker:
 
                 self.answer_dict['flag'] = False
                 self.answer_dict['title'] = 'text error'
-                self.answer_dict['text'] = 'text should only include lower or upper case letters and spaces'
+                self.answer_dict['text'] = 'text should only include english lower or upper case letters and spaces'
 
             else:
 
                 self.answer_dict['flag'] = False
                 self.answer_dict['title'] = 'fill error'
                 self.answer_dict[
-                    'text'] = 'key should only include lower or upper case letters while text can also include spaces'
+                    'text'] = 'key should only include lower or upper case letters while text can spaces'
 
         if self.currentCipher == 'caesar':
 
@@ -77,6 +77,6 @@ class ErrorChecker:
 
                 self.answer_dict['flag'] = False
                 self.answer_dict['title'] = 'text error'
-                self.answer_dict['text'] = 'text should only include lower or upper case letters and spaces'
+                self.answer_dict['text'] = 'text should only include english lower or upper case letters and spaces'
 
         return self.answer_dict
